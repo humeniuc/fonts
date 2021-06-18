@@ -1,0 +1,4 @@
+
+for f in ./*.bdf; do
+    fonttosfnt -o "${f/.bdf/.ttf}" -- "$f"
+done
