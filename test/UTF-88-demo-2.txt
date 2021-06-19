@@ -1,0 +1,717 @@
+
+UTF-8 encoded sample plain-text file
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+Original version from   markus kuhn [ˈmaʳkʊs kuːn]
+Updated with more sets, and some other symbols as a reference
+The original "xterm-UTF-8-demo.txt" is no longer available in..
+  http://www.cl.cam.ac.uk/~mgk25/
+
+This page started from the above fore motioned example page but does a lot more
+that that.  It is looks at combine and join of various Unicode characters, so
+they work as a seamless whole.  It is meant to provide a reference of unicode
+that work well together, and report what doesn't work, but should.
+
+Before using I recommend you also look at "unicode.txt" in the same directory
+and specifically about using pango to view unicode. Especially with fixed width
+fonts.
+
+
+Typographical Usage of Unicode:
+
+            ╔══════════════════════════════════════════╗
+            ║                                          ║
+            ║   • ‘single’ and “double” quotes ❛ ❜ ❝ ❞ ║
+            ║                                          ║
+            ║   • Curly apostrophes: “We’ve been here” ║
+            ║                                          ║
+            ║   • Latin-1 apostrophe and accents: '´`  ║
+            ║                                          ║
+            ║   • ‚deutsche‘ „Anführungszeichen“       ║
+            ║                                          ║
+            ║   • †, ‡, %, ‰, •, 3–4, —, −5/+5, ™, …   ║
+            ║                                          ║
+            ║   • ASCII safety test: 1lI|, 0ODQ, 8B    ║
+            ║                      ╭────────────────╮  ║
+            ║   • Currency in Box: │ 14.95€  5£  2¢ │  ║
+            ║                      ╰────────────────╯  ║
+            ╚══════════════════════════════════════════╝
+
+Mathematics and Science Usage:
+
+  ∮ e⋅da = q,  n → ∞,  ∑ f(i) = ∏ g(i),
+
+  ∀x∈ℝ: ⌈x⌉ = −⌊−x⌋, α ∧ ¬β = ¬(¬α ∨ β),
+
+  ⟦ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ ⊂ ℕ ⊆ ℕ₀ ⟧,
+
+  a ≠ b ≡ c ≤ d ≥ e   (⟪a⟫ ⇔ ⟪b⟫)
+
+  2h₂ + o₂ ⇌ 2h₂o,   r = 4.7 kω,
+
+  ∆d ≈ √2,  ∛5,  ⌀200 mm,  ∠±30°, ⊾⊿
+
+  ⎧ ⎡ ⎛   ⎞ ⎤ ⎫   ⌠    ┌─────┐   ∞
+  ⎪ ⎢ ⎜   ⎟ ⎥ ⎪   ⎮    │a²+b³    ⎲
+  ⎨ ⎢ ⎜   ⎟ ⎥ ⎬   ⎮    │─────    ⎳aⁱ-bⁱ
+  ⎪ ⎢ ⎜   ⎟ ⎥ ⎪   ⎮    ⎷ c₈     i=1
+  ⎩ ⎣ ⎝   ⎠ ⎦ ⎭   ⌡
+
+
+NOTE: In the above examples bracket alignment requires a fixed with font.
+XTerm fonts all work correctly.
+"chrome" web browser does not handle the height summation ('∑').
+"Pango" with a fixed width font "Terminal" works fine except for the extended
+square root base ('⎷') character, which is using something more like ('√').
+It's double height summation also does not join up correctly.
+
+-------------------------------------------------------------------------------
+
+Typographical:
+    dash:  -       ‘single’      apostrophe '
+    ndash: –       “double”      ascents    ´
+    mdash: —       ellipsis …    decent     `
+           ❛ fancy ❜      ❝ quotes ❞
+
+Spaces:
+  I use this as a reference of 'invisible characters'.
+  No Break Space  -> <-  \u00A0
+  Narrow No break -> <-  \u202F
+  Space unicodes  \u2000  to \u200B
+    ' '       \u205F   Math Space
+    '⠀'       \u2800   Braile Space
+    '　'      \u3000   Chinese Ideographic Space (double width)
+    '⁠'        \u2060   Word Joiner (vim has trouble with this, and stuffs up)
+    '﻿'        \uFEFF   Zero Width - no break space
+  Also many Dingbat characters are simply blank
+
+Misc Symbols (including combined characters):
+  footnotes:        ¶ ¥ ¦ § ¬ † ‡ ⁋ ⁑ ⌘
+  ticks & crosses:  ✓ ✔ ✕ ✖ ✗ ✘ √
+                    ╳ ☓ Ⅹ × x    (last is a normal 'x')
+                    ☐ ☑ ☒ 〿   X⃞ ╳⃞ ✓⃞ ✗⃞
+  centered:         · ⋅ ‧ ٠ ᛫   • ∙ ●
+                    ∘ ◦ ○ ◌ ◯   ๐ ໐ ᛜ   o O 0
+                    ⊙ ⊚ ◉ ◎ ๏ ⌾ ☉ ʘ ⨀
+                    ⋄ ᛜ ◇ ⟐ ◈ ◆   ◊
+                    ▵ ▴   △ ◬ ▲
+                    ▫ ▪ ◻ ◼ ▢ □ ⊡ ▣ ■
+                    .⃝ ⋅⃝ ∘⃝ •⃝   •⃟   •⃞ ▫⃞
+  stars:            ⋆ ★ ☆ ✩ ✫ ✬ ✭ ✮ ✯ ✰
+                    ˖ ᛭ ⊹ + ✛ ✜ ✚
+                    ☩ ⌖ ✢ ✣ ✤ ✥ ⟡ ✧ ✦
+                    * ⁎ ᛡ ✶ ✲ ✱ ✻ ✼ ✽ ✾
+  other symbols:    ❤ ☠ ☢ ∞ ☺ ☹ ⍨ ⏎ ⋮
+                    ♂ ♀ ❤ ♡ ✄
+                    € £ ¢ ℃ ℉ © ® ™
+                    ⌚ ⌛ ツ
+
+  Morphology
+    ⊙ ⊚ ⊗ ⊕ ⊖ ⊘ ⊛ ⊜ ⊝
+  Part circle
+    ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗
+  Super-scripts (are not in sequence)...
+    ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁱ ⁿ
+  Sub-scripts...
+    ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎
+  Fractions
+    ¼ ½ ¾ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ % ℅ ‰ ‱
+  Roman numerials
+    Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ
+    ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ
+  Circle Numbers
+    ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉
+    ➊ ➋ ➌ ➍ ➎ ➏ ➐ ➑ ➒ ➓
+    ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨
+    ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳
+  Bracket Numbers
+    ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇
+  Number Period
+    ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛
+
+-------------------------------------------------------------------------------
+Drawing Characters...
+
+Box Drawing, Block Elements & Geometic Shapes U+2500:
+
+  Works in xterms, gedit, chrome (with fixed with font)
+  Best viewed using GTK ("pango") and the "Terminal" font.
+
+  Box Character Examples...
+
+  ┌┬┐ ╓╥╖  ┌┬┐ ┎┰┒  ╭╷╮  ╃╀╄  ╆╈╅   │╎┆┊ ┃╏┇┋  █                 ▄████▄
+  ├┼┤─╟╫╢  ├┼┤─┠╂┨  ╶┼╴  ┽┼┾  ╊╋╉   │╎┆┊ ┃╏┇┋  ▉  ╱╲╱╲╳╳╳       ▐▌    ▐▌
+  └┴┘ ╙╨╜  └┴┘ ┖┸┚  ╰╵╯  ╅╁╆  ╄╇╃   │╎┆┊ ┃╏┇┋  ▊  ╲╱╲╱╳╳╳    ▄▀▀█▀    ▐▌
+   │   ║    │   ┃                              ▋  ╱╲╱╲╳╳╳    ▄ ▐▄     ▐▌▀▀▄
+  ╒╤╕ ╔╦╗  ┍┯┑ ┏┳┓  ┏╻┓ ┌╽┐  ┟┲┱┧   ──── ━━━━  ▌  ╲╱╲╱╳╳╳  ▐▀ ▄▄ ▀▌ ▄▀▀ ▀▄ ▀
+  ╞╪╡═╠╬╣  ┝┿┥━┣╋┫  ╺╋╸ ╼╋╾  ┞┺┹┦   ╌╌╌╌ ╍╍╍╍  ▍           ▐ ▀██▀ ▌▐ ▄██▄ ▌
+  ╘╧╛ ╚╩╝  ┕┷┙ ┗┻┛  ┗╹┛ └╿┘  ┢┭┮┪   ┄┄┄┄ ┅┅┅┅  ▎ ▁▂▃▄▅▆▇█   ▀▄ ▄▄▀ ▐  ▀▀  ▌
+                             ┡┵┶┩   ┉┉┉┉ ┉┉┉┉  ▏               █    ▀▄▄ ▄▀
+  ╔══╦══╗  ┌──┬──┐  ╭──┬──╮  ╭──┬──╮                           █ █    █ ▐
+  ║┌─╨─┐║  │╔═╧═╗│  │╒═╪═╕│  │╓─╁─╖│  ▛▀▜  ▗▄▖       ╲│╱       █ █   ▐▌ █
+  ║│   │║  │║   ║│  ││ │ ││  │║ ┃ ║│  ▌█▐  ▐ ▌  ▞▚   ─╳─       █ █   ▐▌ █
+  ╠╡   ╞╣  ├╢   ╟┤  ├┼─┼─┼┤  ├╫─╂─╫┤  ▙▄▟  ▝▀▘  ▚▞   ╱│╲       ▐▌▐▌   █ █
+  ║│   │║  │║   ║│  ││ │ ││  │║ ┃ ║│                           ▐▌ █▄ ▐▌ █
+  ║└─╥─┘║  │╚═╤═╝│  │╘═╪═╛│  │╙─╀─╜│   ░░▒▒▓▓██                 █  ▀▀▀  ▐
+  ╚══╩══╝  └──┴──┘  ╰──┴──╯  ╰──┴──╯   ░░▒▒▓▓██                 ▐▌      █
+                                                                 █▄    ▄█
+                                                                  ▀████▀
+  Other Examples...
+    https://en.wikipedia.org/wiki/Box-drawing_character
+    https://www.vidarholen.net/cgi-bin/labyrinth?w=13&h=13
+    http://xahlee.info/comp/unicode_drawing_shapes.html
+
+    ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕  ┌─┬─────────┬─────────┐  ┌┮┭┬┬┲┱┬┬┬┐
+    │ ││  ║ ║║  ║ ║║  │ ││  │ └─┐ ┌───┐ ├───┬───┐ │  ┟┼┼┼┼╄╃┼┼┼┧
+    ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡  ├─┐ │ └─┐ │ │ ╷ ╵ ╷ ╵ │  ┞┼┼┼┼┼┼┼┼┼┦
+    └─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛  │ │ │ ╷ │ ╵ │ └───┴─┐ │  ┢╅┼┼┼┼┼┼┼╆┪ \_wrong in
+    ┌───────────────────┐   │ │ └─┤ │ ╶─┴─────╴ │ │  ┡╃┼┼┼┼┼┼┼╄┩ /  xterms
+    │  ╔═══╗ Some Text  │▒  │ └─╴ │ │ ┌─────┬───┤ │  ├┼╆╈╅┼┼╁┼┼┤
+    │  ╚═╦═╝ in the box │▒  │ ╶─┬─┤ └─┘ ╶─┐ │ ┌─┘ │  ├┼╊╋╉┼┾╋┽┼┤
+    ╞═╤══╩══╤═══════════╡▒  ├─┐ │ ╵ ┌─────┤ │ ╵ ╶─┤  ├┼╄╇╃┼┼╀┼┼┤
+    │ ├──┬──┤           │▒  │ │ └─┐ │ ┌─╴ │ └─┬─┐ │  ├┼┼┼┼╆╅┼┼┼┤
+    │ └──┴──┘           │▒  │ └─┐ └─┘ │ ╶─┴─┐ │ ╵ │  └┶┵┴┴┺┹┴┴┴┘
+    └───────────────────┘▒  │ ╶─┴─────┴───╴ ╵ │ ╶─┤
+     ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  └─────────────────┴───┘
+
+  Other web sites...
+    http://tamivox.org/dave/boxchar/index.html
+    http://clubmate.fi/using-pseudographics-in-blogposts-drawing-ascii-diagrams-and-boxes/
+
+  Warning: box lines do not always work with other shapes. But should!
+  Obviously font designers do not care about box drawing fonts all that much!
+  As such they really only work in fixed width terminals, like xterms ☹
+
+       ╷       ∧       ⊤
+    ◁──╯╭──▷  ╱ ╲ ╱   ⊢┼──◠─◡──⌃─⌄──⊣
+        ╵        ∨     ⊥
+
+    ⇐═══⇒  ⊨═══  ⊫═══⋕═══≑═══≡═══≣═══   ⊩──  ⊪──
+
+    ⟸═══⟹             Longer proportional font double line arrows
+
+    ─────➤   ═════➤   This arrow head seem to work well (right only)
+
+  These do not connect to each other properly, but good for framing
+
+    ◿ ◺  ◢ ◣  ◜◝  ⌌ ⌍  ⌜ ⌝   ⎾ ⏋     ⌃ ◠ ⌢ ⎴
+    ◹ ◸  ◥ ◤  ◟◞  ⌎ ⌏  ⌞ ⌟   ⎿ ⏌     ⌄ ◡ ⌣ ⎵
+                               ^- this is wrong in X window fonts
+
+Horizontal Lines U+2300:
+
+           vv----- horizontal line extension
+
+    ▔▔ ⎺⎺⎻⎻⎯⎯⎼⎼⎽⎽ ▁▁  ──  box drawing horizontal line   ―― horizontal bar
+
+    ^^------------^^---  1/8 block, top and bottom
+
+    ◅⎯⎯⎯▻   ◄⎯⎯⎯►    ⊲⎯⎯⎯⊳   ≺⎯⎯⎯≻
+    ◃⎯⎯⎯▹   ◂⎯⎯⎯▸    ⊢⎯⎯⎯⊣   ⊰⎯⎯⎯⊱
+    ◁⎯⎯⎯▷   ◀⎯⎯⎯▶    ⟵⎯⎯⎯⟶   «⎯⎯⎯»  ⟝⎯⎯⎯⟞
+
+    ▷───◁   \u2500  box drawing horizontal line
+    ▷⎯⎯⎯◁   \u23af  horizontal line extension (used in arrows above)
+    ▷―――◁   \u2015  horizontal bar
+
+  Notes:
+    \u2500 box drawing line, should work but do not line up properly
+           vertically in most fonts!
+    \u23af horizontal line extension (middle char in above sequence), works
+           well with geometic shapes. Except "chrome" seems to replace the
+           character in some situations and not others.  And the GTK
+           ("pango") using the "Terminal" font, shortens it!
+    \u2015 horizontal bar, also works but is very long in proportional fonts.
+
+  So just what should be used? All have some sort of fault!
+
+
+Vertical Lines U+2300:
+
+  There is a lot of vertical bars for extended brackets in the U+2300 unicode
+  block.  You should ensure you use the right one for each bracket type.  See
+  example in the "Mathematics and Sciences" section above.
+
+    ▏   \u258f                   1/8 block left
+    ⎸   \u23b8                   left box line (does not work well)
+    ⎢   \u23a2   ⎡ ⎢ ⎣           left square bracket
+    ⎜   \u239c   ⎛ ⎜ ⎝           left parenthesis
+    ⎪   \u23aa   ⎧ ⎨ ⎩ ⎪ ⎫ ⎬ ⎭   curly braces
+    │   \u2502                   box drawing vertical line (see above)
+    ⎮   \u23ae   ⌠ ⎮ ⌡           intergral sign
+    ⎟   \u239f   ⎞ ⎟ ⎠           right parenthesis
+    ⎥   \u23a5   ⎤ ⎥ ⎦           right square bracket
+    ⎹   \u23b9                   right box line (does not work well)
+    ▕   \u2595                   1/8 block right
+
+    ⏐   \u23d0 vertical line extension (not defined in X window fonts)
+
+    ▽  △  ▵  ▲  ▴  ∆  ⋏  ∨  ⊤  ⟙
+    ⎪  ⎪  ⎪  ⎪  ⎪  ⎪  ⎪  ⎪  ⎪  ⎪     <-- using \u23aa curly brace extension
+    △  ▽  ▿  ▼  ▾  ∇  ⋎  ∧  ⊥  ⟘
+
+  Just about all the centered vertial lines work for vertical arrows.  This
+  includes \u23aa curly brace extension, \u23ae intergral sign extension, and
+  \u2502 box drawing vertical line.  Quite a contrast to horizontal lines.
+
+  The \u23d0 vertical line extension should work but is undefined with
+  a X windows ("vim") terminal fonts, and becomes small when used with GTK
+  ("pango") "Terminal" font.
+
+
+Upside Down Letters:
+  NB: Characters are from all over the unicode, some are not always available
+
+    Z⅄XMᴧ∩⊥SᴚΌԀOᴎW⅂⋊ſIH⅁ℲƎ◖Ↄ𐐒∀
+    zʎxʍʌnʇsɹbdouɯƖʞɾᴉɥƃɟǝpɔqɐ
+    068ㄥ9ϛㄣƐᄅƖ
+     ˙ ʻ ؛ ¿ ¡ „ ⅋
+
+  Alturnatives
+    i ->  ı ᴉ
+    l ->  Ɩ ʅ
+    2 ->  Z ᄅ
+    G ->  ⅁ פ
+    . ->  ˙⠐  ° ˚
+    , ->  ' ʻ ‘
+
+  Example Phrases
+
+    ¡ɐᴉlɐɹʇsn∀ ʻɹǝpun uʍop ɯoɹɟ sƃuᴉʇǝǝɹ⅁
+
+    ¡ɹǝpun uʍop ɯoɹɟ ʻʎɐp,ɐ⅁
+
+    ¡sǝᴉqɯoz noʎ ƖƖɐ ʎǝɥ ʎǝH
+
+    ˙˙˙unɟ ǝʌɐH  ˙sǝıqɯoz noʎ ƖƖɐ ʇɥƃıu poo⅁
+
+  Converters...
+    http://www.upsidedowntext.com/
+    https://fsymbols.com/generators/aboqe-flip/
+    https://www.fileformat.info/convert/text/upside-down.htm
+    https://www.fileformat.info/convert/text/upside-down-map.htm
+
+  Other different text converters....
+    https://fsymbols.com/generators/wavy
+    https://fsymbols.com/generators/zalgo
+    https://fsymbols.com/generators/carty/
+    https://fsymbols.com/generators/smallcaps/
+    ...
+
+-------------------------------------------------------------------------------
+Unicode Block Tables...
+
+Arrows U+2190
+    ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ↚ ↛ ↜ ↝ ↞ ↟
+    ↠ ↡ ↢ ↣ ↤ ↥ ↦ ↧ ↨ ↩ ↪ ↫ ↬ ↭ ↮ ↯
+    ↰ ↱ ↲ ↳ ↴ ↵ ↶ ↷ ↸ ↹ ↺ ↻ ↼ ↽ ↾ ↿
+    ⇀ ⇁ ⇂ ⇃ ⇄ ⇅ ⇆ ⇇ ⇈ ⇉ ⇊ ⇋ ⇌ ⇍ ⇎ ⇏
+    ⇐ ⇑ ⇒ ⇓ ⇔ ⇕ ⇖ ⇗ ⇘ ⇙ ⇚ ⇛ ⇜ ⇝ ⇞ ⇟
+    ⇠ ⇡ ⇢ ⇣ ⇤ ⇥ ⇦ ⇧ ⇨ ⇩ ⇪ ⇫ ⇬ ⇭ ⇮ ⇯
+    ⇰ ⇱ ⇲ ⇳ ⇴ ⇵ ⇶ ⇷ ⇸ ⇹ ⇺ ⇻ ⇼ ⇽ ⇾ ⇿
+  Dingbat Arrows
+    ➔ ➘ ➙ ➚ ➛ ➜ ➝ ➞ ➟ ➠ ➡ ➢ ➣
+    ➤ ➥ ➦ ➧ ➨ ➩ ➪ ➫ ➬ ➭ ➮ ➯ ➱
+    ➳ ➴ ➵ ➶ ➷ ➸ ➹ ➺ ➻ ➼ ➽ ➾ ➿
+  Supplement-A
+    ⟰ ⟱ ⟲ ⟳ ⟴ ⟵ ⟶ ⟷ ⟸ ⟹ ⟺ ⟻ ⟼ ⟽ ⟾ ⟿
+  Supplement-B
+    ⤀ ⤁ ⤂ ⤃ ⤄ ⤅ ⤆ ⤇ ⤈ ⤉ ⤊ ⤋ ⤌ ⤍ ⤎ ⤏
+    ⤐ ⤑ ⤒ ⤓ ⤔ ⤕ ⤖ ⤗ ⤘ ⤙ ⤚ ⤛ ⤜ ⤝ ⤞ ⤟
+    ⤠ ⤡ ⤢ ⤣ ⤤ ⤥ ⤦ ⤧ ⤨ ⤩ ⤪ ⤫ ⤬ ⤭ ⤮ ⤯
+    ⤰ ⤱ ⤲ ⤳ ⤴ ⤵ ⤶ ⤷ ⤸ ⤹ ⤺ ⤻ ⤼ ⤽ ⤾ ⤿
+    ⥀ ⥁ ⥂ ⥃ ⥄ ⥅ ⥆ ⥇ ⥈ ⥉ ⥊ ⥋ ⥌ ⥍ ⥎ ⥏
+    ⥐ ⥑ ⥒ ⥓ ⥔ ⥕ ⥖ ⥗ ⥘ ⥙ ⥚ ⥛ ⥜ ⥝ ⥞ ⥟
+    ⥠ ⥡ ⥢ ⥣ ⥤ ⥥ ⥦ ⥧ ⥨ ⥩ ⥪ ⥫ ⥬ ⥭ ⥮ ⥯
+    ⥰ ⥱ ⥲ ⥳ ⥴ ⥵ ⥶ ⥷ ⥸ ⥹ ⥺ ⥻ ⥼ ⥽ ⥾ ⥿
+  Other Arrows
+    ↩ ↪ ↫ ↬ ⏎  ◄ ► ◅ ▻  ◂ ▸ ◃ ▹  ◀ ▶ ◁ ▷  ▲ ▼ △ ▽
+  Diacritical Arrows (see Composing Characters below)
+     ⃐  ⃑  ⃔  ⃕  ⃖  ⃗  ⃡  ⃪      | Protect from end of line space removal
+  See combining chars below
+
+Mathematical U+2200:
+    ∀ ∁ ∂ ∃ ∄ ∅ ∆ ∇ ∈ ∉ ∊ ∋ ∌ ∍ ∎ ∏
+    ∐ ∑ − ∓ ∔ ∕ ∖ ∗ ∘ ∙ √ ∛ ∜ ∝ ∞ ∟
+    ∠ ∡ ∢ ∣ ∤ ∥ ∦ ∧ ∨ ∩ ∪ ∫ ∬ ∭ ∮ ∯
+    ∰ ∱ ∲ ∳ ∴ ∵ ∶ ∷ ∸ ∹ ∺ ∻ ∼ ∽ ∾ ∿
+    ≀ ≁ ≂ ≃ ≄ ≅ ≆ ≇ ≈ ≉ ≊ ≋ ≌ ≍ ≎ ≏
+    ≐ ≑ ≒ ≓ ≔ ≕ ≖ ≗ ≘ ≙ ≚ ≛ ≜ ≝ ≞ ≟
+    ≠ ≡ ≢ ≣ ≤ ≥ ≦ ≧ ≨ ≩ ≪ ≫ ≬ ≭ ≮ ≯
+    ≰ ≱ ≲ ≳ ≴ ≵ ≶ ≷ ≸ ≹ ≺ ≻ ≼ ≽ ≾ ≿
+    ⊀ ⊁ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊈ ⊉ ⊊ ⊋ ⊌ ⊍ ⊎ ⊏
+    ⊐ ⊑ ⊒ ⊓ ⊔ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟
+    ⊠ ⊡ ⊢ ⊣ ⊤ ⊥ ⊦ ⊧ ⊨ ⊩ ⊪ ⊫ ⊬ ⊭ ⊮ ⊯
+    ⊰ ⊱ ⊲ ⊳ ⊴ ⊵ ⊶ ⊷ ⊸ ⊹ ⊺ ⊻ ⊼ ⊽ ⊾ ⊿
+    ⋀ ⋁ ⋂ ⋃ ⋄ ⋅ ⋆ ⋇ ⋈ ⋉ ⋊ ⋋ ⋌ ⋍ ⋎ ⋏
+    ⋐ ⋑ ⋒ ⋓ ⋔ ⋕ ⋖ ⋗ ⋘ ⋙ ⋚ ⋛ ⋜ ⋝ ⋞ ⋟
+    ⋠ ⋡ ⋢ ⋣ ⋤ ⋥ ⋦ ⋧ ⋨ ⋩ ⋪ ⋫ ⋬ ⋭ ⋮ ⋯
+    ⋰ ⋱ ⋲ ⋳ ⋴ ⋵ ⋶ ⋷ ⋸ ⋹ ⋺ ⋻ ⋼ ⋽ ⋾ ⋿
+
+Technical U+2300:
+    ⌀ ⌁ ⌂ ⌃ ⌄ ⌅ ⌆ ⌇ ⌈ ⌉ ⌊ ⌋ ⌌ ⌍ ⌎ ⌏
+    ⌐ ⌑ ⌒ ⌓ ⌔ ⌕ ⌖ ⌗ ⌘ ⌙ ⌚ ⌛ ⌜ ⌝ ⌞ ⌟
+    ⌠ ⌡ ⌢ ⌣ ⌤ ⌥ ⌦ ⌧ ⌨ 〈 〉 ⌫ ⌬ ⌭ ⌮ ⌯
+    ⌰ ⌱ ⌲ ⌳ ⌴ ⌵ ⌶ ⌷ ⌸ ⌹ ⌺ ⌻ ⌼ ⌽ ⌾ ⌿
+    ⍀ ⍁ ⍂ ⍃ ⍄ ⍅ ⍆ ⍇ ⍈ ⍉ ⍊ ⍋ ⍌ ⍍ ⍎ ⍏
+    ⍐ ⍑ ⍒ ⍓ ⍔ ⍕ ⍖ ⍗ ⍘ ⍙ ⍚ ⍛ ⍜ ⍝ ⍞ ⍟
+    ⍠ ⍡ ⍢ ⍣ ⍤ ⍥ ⍦ ⍧ ⍨ ⍩ ⍪ ⍫ ⍬ ⍭ ⍮ ⍯
+    ⍰ ⍱ ⍲ ⍳ ⍴ ⍵ ⍶ ⍷ ⍸ ⍹ ⍺ ⍻ ⍼ ⍽ ⍾ ⍿
+    ⎀ ⎁ ⎂ ⎃ ⎄ ⎅ ⎆ ⎇ ⎈ ⎉ ⎊ ⎋ ⎌ ⎍ ⎎ ⎏
+    ⎐ ⎑ ⎒ ⎓ ⎔ ⎕ ⎖ ⎗ ⎘ ⎙ ⎚ ⎛ ⎜ ⎝ ⎞ ⎟
+    ⎠ ⎡ ⎢ ⎣ ⎤ ⎥ ⎦ ⎧ ⎨ ⎩ ⎪ ⎫ ⎬ ⎭ ⎮ ⎯
+    ⎰ ⎱ ⎲ ⎳ ⎴ ⎵ ⎶ ⎷ ⎸ ⎹ ⎺ ⎻ ⎼ ⎽ ⎾ ⎿
+    ⏀ ⏁ ⏂ ⏃ ⏄ ⏅ ⏆ ⏇ ⏈ ⏉ ⏊ ⏋ ⏌ ⏍ ⏎ ⏏
+    ⏐  ⏑  ⏒  ⏓  ⏔  ⏕  ⏖  ⏗  ⏘  ⏙  ⏚  ⏛  ⏜  ⏝  ⏞  ⏟
+    ⏠  ⏡  ⏢  ⏣  ⏤  ⏥  ⏦  ⏧  ⏨  ⏩ ⏪ ⏫ ⏬ ⏭  ⏮  ⏯
+    ⏰ ⏱  ⏲  ⏳ ⏴  ⏵  ⏶  ⏷  ⏸  ⏹  ⏺  ⏻  ⏼  ⏽  ⏾  ⏿
+
+Miscellaneous U+2400:
+    ␀ ␁ ␂ ␃ ␄ ␅ ␆ ␇ ␈ ␉ ␊ ␋ ␌ ␍ ␎ ␏
+    ␐ ␑ ␒ ␓ ␔ ␕ ␖ ␗ ␘ ␙ ␚ ␛ ␜ ␝ ␞ ␟
+    ␠ ␡ ␢ ␣ ␤ ␥ ␦
+
+    ⑀ ⑁ ⑂ ⑃ ⑄ ⑅ ⑆ ⑇ ⑈ ⑉ ⑊
+
+    ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯
+    ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿
+    ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏
+    ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟
+    ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯
+    ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ
+    Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ
+    ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ
+    ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ⓫ ⓬ ⓭ ⓮ ⓯
+    ⓰ ⓱ ⓲ ⓳ ⓴ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿
+
+Graphics U+2500:
+    ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏
+    ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
+    ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯
+    ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿
+    ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
+    ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟
+    ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯
+    ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
+    ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏
+    ▐ ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞ ▟
+    ■ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯
+    ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ► ▻ ▼ ▽ ▾ ▿
+    ◀ ◁ ◂ ◃ ◄ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ●
+    ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◘ ◙ ◚ ◛ ◜ ◝ ◞ ◟
+    ◠ ◡ ◢ ◣ ◤ ◥ ◦ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯
+    ◰ ◱ ◲ ◳ ◴ ◵ ◶ ◷ ◸ ◹ ◺ ◻ ◼ ◽ ◾ ◿
+
+Miscellaneous Symbols U+2600:
+    ☀ ☁ ☂ ☃ ☄ ★ ☆ ☇ ☈ ☉ ☊ ☋ ☌ ☍ ☎ ☏
+    ☐ ☑ ☒ ☓ ☔ ☕ ☖ ☗ ☘ ☙ ☚ ☛ ☜ ☝ ☞ ☟
+    ☠ ☡ ☢ ☣ ☤ ☥ ☦ ☧ ☨ ☩ ☪ ☫ ☬ ☭ ☮ ☯
+    ☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷ ☸ ☹ ☺ ☻ ☼ ☽ ☾ ☿
+    ♀ ♁ ♂ ♃ ♄ ♅ ♆ ♇ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏
+    ♐ ♑ ♒ ♓ ♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟
+    ♠ ♡ ♢ ♣ ♤ ♥ ♦ ♧ ♨ ♩ ♪ ♫ ♬ ♭ ♮ ♯
+
+Dingbats U+2700:
+Many of the original are defined elsewhere:
+      ✁ ✂ ✃ ✄   ✆ ✇ ✈ ✉     ✌ ✍ ✎ ✏
+    ✐ ✑ ✒ ✓ ✔ ✕ ✖ ✗ ✘ ✙ ✚ ✛ ✜ ✝ ✞ ✟
+    ✠ ✡ ✢ ✣ ✤ ✥ ✦ ✧   ✩ ✪ ✫ ✬ ✭ ✮ ✯
+    ✰ ✱ ✲ ✳ ✴ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿
+    ❀ ❁ ❂ ❃ ❄ ❅ ❆ ❇ ❈ ❉ ❊ ❋   ❍   ❏
+    ❐ ❑ ❒       ❖   ❘ ❙ ❚ ❛ ❜ ❝ ❞
+      ❡ ❢ ❣ ❤ ❥ ❦ ❧ ❨ ❩ ❪ ❫ ❬ ❭ ❮ ❯
+    ❰ ❱ ❲ ❳ ❴ ❵ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿
+    ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉ ➊ ➋ ➌ ➍ ➎ ➏
+    ➐ ➑ ➒ ➓ ➔       ➘ ➙ ➚ ➛ ➜ ➝ ➞ ➟
+    ➠ ➡ ➢ ➣ ➤ ➥ ➦ ➧ ➨ ➩ ➪ ➫ ➬ ➭ ➮ ➯
+      ➱ ➲ ➳ ➴ ➵ ➶ ➷ ➸ ➹ ➺ ➻ ➼ ➽ ➾ ➿
+
+    ⟀ ⟁ ⟂ ⟃ ⟄ ⟅ ⟆ ⟇ ⟈ ⟉ ⟊ ⟋ ⟌ ⟍ ⟎ ⟏
+    ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ⟛ ⟜ ⟝ ⟞ ⟟
+    ⟠ ⟡ ⟢ ⟣ ⟤ ⟥ ⟦ ⟧ ⟨ ⟩ ⟪ ⟫ ⟬ ⟭ ⟮ ⟯
+    ⟰ ⟱ ⟲ ⟳ ⟴ ⟵ ⟶ ⟷ ⟸ ⟹ ⟺ ⟻ ⟼ ⟽ ⟾ ⟿
+
+Braile U+2800:
+    ⠀ ⠁ ⠂ ⠃ ⠄ ⠅ ⠆ ⠇ ⠈ ⠉ ⠊ ⠋ ⠌ ⠍ ⠎ ⠏
+    ⠐ ⠑ ⠒ ⠓ ⠔ ⠕ ⠖ ⠗ ⠘ ⠙ ⠚ ⠛ ⠜ ⠝ ⠞ ⠟
+    ⠠ ⠡ ⠢ ⠣ ⠤ ⠥ ⠦ ⠧ ⠨ ⠩ ⠪ ⠫ ⠬ ⠭ ⠮ ⠯
+    ⠰ ⠱ ⠲ ⠳ ⠴ ⠵ ⠶ ⠷ ⠸ ⠹ ⠺ ⠻ ⠼ ⠽ ⠾ ⠿
+    ⡀ ⡁ ⡂ ⡃ ⡄ ⡅ ⡆ ⡇ ⡈ ⡉ ⡊ ⡋ ⡌ ⡍ ⡎ ⡏
+    ⡐ ⡑ ⡒ ⡓ ⡔ ⡕ ⡖ ⡗ ⡘ ⡙ ⡚ ⡛ ⡜ ⡝ ⡞ ⡟
+    ⡠ ⡡ ⡢ ⡣ ⡤ ⡥ ⡦ ⡧ ⡨ ⡩ ⡪ ⡫ ⡬ ⡭ ⡮ ⡯
+    ⡰ ⡱ ⡲ ⡳ ⡴ ⡵ ⡶ ⡷ ⡸ ⡹ ⡺ ⡻ ⡼ ⡽ ⡾ ⡿
+    ⢀ ⢁ ⢂ ⢃ ⢄ ⢅ ⢆ ⢇ ⢈ ⢉ ⢊ ⢋ ⢌ ⢍ ⢎ ⢏
+    ⢐ ⢑ ⢒ ⢓ ⢔ ⢕ ⢖ ⢗ ⢘ ⢙ ⢚ ⢛ ⢜ ⢝ ⢞ ⢟
+    ⢠ ⢡ ⢢ ⢣ ⢤ ⢥ ⢦ ⢧ ⢨ ⢩ ⢪ ⢫ ⢬ ⢭ ⢮ ⢯
+    ⢰ ⢱ ⢲ ⢳ ⢴ ⢵ ⢶ ⢷ ⢸ ⢹ ⢺ ⢻ ⢼ ⢽ ⢾ ⢿
+    ⣀ ⣁ ⣂ ⣃ ⣄ ⣅ ⣆ ⣇ ⣈ ⣉ ⣊ ⣋ ⣌ ⣍ ⣎ ⣏
+    ⣐ ⣑ ⣒ ⣓ ⣔ ⣕ ⣖ ⣗ ⣘ ⣙ ⣚ ⣛ ⣜ ⣝ ⣞ ⣟
+    ⣠ ⣡ ⣢ ⣣ ⣤ ⣥ ⣦ ⣧ ⣨ ⣩ ⣪ ⣫ ⣬ ⣭ ⣮ ⣯
+    ⣰ ⣱ ⣲ ⣳ ⣴ ⣵ ⣶ ⣷ ⣸ ⣹ ⣺ ⣻ ⣼ ⣽ ⣾ ⣿
+
+
+Specials Block U+FFF0:
+
+    ￹  \uFFF9  Annotation Anchor
+    ￺  \uFFFA  Annotation Separator
+    ￻  \uFFFB  Annotation Terminator
+    ￼    \uFFFC  Replacement Object (placeholder for unspecificed document)
+    �    \uFFFD  Replacement character (the offical not-defined character)
+    ￾ ￿  \uFFFE, \uFFFF   not a character (generally something is wrong!)
+
+  The most important character in this block is � \uFFFD
+  And is rendered as a filled diamond with question mark.
+  Used to indicate a problem within the unicode stream,
+  such as display a windows code page as unicode.
+
+-------------------------------------------------------------------------------
+Composing Characters...
+
+  Diacritical Marks, are characters that accent the previous character.
+  Generally you have a main character then a combining character which overlays
+  on the previous character.  Some characters are pre-combined to provide
+  direct compatibility with the older ISO8859 fonts.
+
+    A + Diaeresis (u0308):  Ä
+    PreCombined   (u00C4):  Ä
+
+  Combining Characters tend to fail in unexpected ways. With marks appearing
+  over the next character (Chrome), or not centered over/below the previous
+  character (pango with various fonts).  XTerms seem to work the best.
+
+  Note that the Thai Script needs up to two combining characters
+  over a single base character.
+
+  Examples...
+
+    STARGΛ̊TE SG-1, a = v̇ = r̈, a⃑ ⊥ b⃑
+
+    .⃝ ⋅⃝ ∘⃝ •⃝ •⃟ •⃞ ▫⃞ X⃞ ╳⃞ ✔⃞ v⃤   •⃕   ∘͎ ∘̭̌ •̬̂ ◇̬̂  °⃘̊
+
+
+Diacritical Mark Blocks (formatted over a space)
+
+  Combining Diacritical Marks U+0300 - U+036F
+
+     ̃  ̄  ̅  ̂  ̌  ̑  ̆   ̐  ̀  ́  ̇  ̈  ͡  ̚  ̊    | Protect from end of line space removal
+     ̴  ̵  ̶           ̷  ̸                | as these are all combined with a space!
+       ̱  ̲  ̭  ̬  ̯  ̮   ͎  ͢        ͜        |
+
+  Non-combining Diacritical Marks U+02B0 - U+02FF
+    ˘ ˙ ˚ ˜ ˟ ˆ ˇ
+
+  Combining Diacritical Marks for Symbols U+20D0 - U+20FF
+
+     ⃐  ⃑  ⃒  ⃓  ⃔  ⃕  ⃖  ⃗  ⃘  ⃙  ⃚  ⃛  ⃜         | Protect from end of line space removal
+     ⃝  ⃞  ⃟  ⃠  ⃡  ⃢  ⃣  ⃤  ⃥  ⃦  ⃧  ⃨  ⃩  ⃪       | Works in "vim" but in little else
+
+
+Variation Selector...
+
+  When fonts contain both Text and Emoji varients, some symbols are in both
+  The symbols generally have a preference for what it should be displayed as,
+  but a variation selector prefix can change that preferance, when this is
+  a problem.  This is generally needed for web rendering, in terminals the
+  indicator is not understood at this time and comes out as a unknown
+  composing character.
+
+    U+FE0E     indicator for text rendering
+    U+FE0F     indicator for emoji rendering
+
+  Example...  ↔   is a math symbol.
+  But some web browers will prefer to use the emoji varient! That means some
+  mathematical formulas simply do not render as it was originally intended.
+
+  See http://xahlee.info/comp/text_vs_emoji.html
+
+-------------------------------------------------------------------------------
+Simple Ascii Art...
+
+  These often make big use of Diacritical Marks and as such often fail
+  in spectacular ways.
+
+    (°͡ʖ͜°͡)          XTerm: though the nose combining char is missing for me.
+    ( ͡° ͜ʖ ͡°)       For GTK fonts and web browsers (proportional fonts)
+
+    (⟃ ͜ʖ ⟄)        Goggly Eyes
+
+   ¯\_(ツ)_/¯      The double-wide face fails in xterms
+
+   ┌∩┐(◣_◢)┌∩┐     Monster
+
+   (´סּ︵סּ`)        Sad
+
+    (¬_¬)          Meh
+
+    ლ(ಠ益ಠ)ლ       Angry
+
+     •͡˘㇁•͡˘        Face  (not in gedit, or chrome)
+
+    (◔/‿\◔)        Up Face
+
+                  Circle of Hats  (chrome works, not in xterm) - lost
+
+   __̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡  ı̴̡̡ ̡͌l̡̡̡̡.___
+                  Landscape  (xterms only, not gedit or chrome)
+
+   »-(¯`.´¯)->     Arrow in Heart
+
+   [{-_-}] ZZZzz zz z...    Sleep
+
+    龴ↀ◡ↀ龴        Cat
+
+     ʕ•ᴥ•ʔ         Bear
+
+     ᶘ ᵒᴥᵒᶅ  ᶘᵒᴥᵒᶅ  pedobear (look right, left)
+
+     (♥_♥)         Love Eyes
+
+    ⊂(✰‿✰)つ       Star Eyes
+
+    \(סּںסּَ` )/ۜ      Yea!
+
+     (Ͼ˳Ͽ)         big eyes
+
+   ∙،°. ˘Ô≈ôﺣ      Racing Car
+
+    ℓ٥ﻻ ﻉ√٥υ       Love You Script
+
+    [̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅]      Money  (xterm only)
+
+    ~(‾▿‾)~        Bird
+
+     -`ღ´-         Sparkingly heart
+
+    ︻╦̵̵͇̿̿̿̿══╤─        Rifle
+
+   ┌ಠ_ಠ)┌∩┐ ᶠᶸᶜᵏ♥ᵧₒᵤ   Fuck You  (chrome, not xterms)
+
+-----------------------------------------------------
+Language Examples...
+
+APL:
+
+  ((V⍳V)=⍳⍴V)/V←,V    ⌷←⍳→⍴∆∇⊃‾⍎⍕⌈
+
+Linguistics and dictionaries:
+
+  ði ıntəˈnæʃənəl fəˈnɛtık əsoʊsiˈeıʃn
+  Y [ˈʏpsilɔn], Yen [jɛn], Yoga [ˈjoːgɑ]
+
+Some Chinese (double width characters)
+  测试用的汉字
+
+Greek (in Polytonic):
+
+  From a speech of Demosthenes in the 4th century BC:
+
+  Οὐχὶ ταὐτὰ παρίσταταί μοι γιγνώσκειν, ὦ ἄνδρες ᾿Αθηναῖοι,
+  ὅταν τ᾿ εἰς τὰ πράγματα ἀποβλέψω καὶ ὅταν πρὸς τοὺς
+  λόγους οὓς ἀκούω· τοὺς μὲν γὰρ λόγους περὶ τοῦ
+  τιμωρήσασθαι Φίλιππον ὁρῶ γιγνομένους, τὰ δὲ πράγματ᾿
+  εἰς τοῦτο προήκοντα,  ὥσθ᾿ ὅπως μὴ πεισόμεθ᾿ αὐτοὶ
+  πρότερον κακῶς σκέψασθαι δέον. οὐδέν οὖν ἄλλο μοι δοκοῦσιν
+  οἱ τὰ τοιαῦτα λέγοντες ἢ τὴν ὑπόθεσιν, περὶ ἧς βουλεύεσθαι,
+  οὐχὶ τὴν οὖσαν παριστάντες ὑμῖν ἁμαρτάνειν. ἐγὼ δέ, ὅτι μέν
+  ποτ᾿ ἐξῆν τῇ πόλει καὶ τὰ αὑτῆς ἔχειν ἀσφαλῶς καὶ Φίλιππον
+  τιμωρήσασθαι, καὶ μάλ᾿ ἀκριβῶς οἶδα· ἐπ᾿ ἐμοῦ γάρ, οὐ πάλαι
+  γέγονεν ταῦτ᾿ ἀμφότερα· νῦν μέντοι πέπεισμαι τοῦθ᾿ ἱκανὸν
+  προλαβεῖν ἡμῖν εἶναι τὴν πρώτην, ὅπως τοὺς συμμάχους
+  σώσομεν. ἐὰν γὰρ τοῦτο βεβαίως ὑπάρξῃ, τότε καὶ περὶ τοῦ
+  τίνα τιμωρήσεταί τις καὶ ὃν τρόπον ἐξέσται σκοπεῖν· πρὶν δὲ
+  τὴν ἀρχὴν ὀρθῶς ὑποθέσθαι, μάταιον ἡγοῦμαι περὶ τῆς
+  τελευτῆς ὁντινοῦν ποιεῖσθαι λόγον.
+
+  Δημοσθένους, Γ´ ᾿Ολυνθιακὸς
+
+Georgian:
+
+  From a Unicode conference invitation:
+
+  გთხოვთ ახლავე გაიაროთ რეგისტრაცია Unicode-ის მეათე საერთაშორისო
+  კონფერენციაზე დასასწრებად, რომელიც გაიმართება 10-12 მარტს,
+  ქ. მაინცში, გერმანიაში. კონფერენცია შეჰკრებს ერთად მსოფლიოს
+  ექსპერტებს ისეთ დარგებში როგორიცაა ინტერნეტი და Unicode-ი,
+  ინტერნაციონალიზაცია და ლოკალიზაცია, Unicode-ის გამოყენება
+  ოპერაციულ სისტემებსა, და გამოყენებით პროგრამებში, შრიფტებში,
+  ტექსტების დამუშავებასა და მრავალენოვან კომპიუტერულ სისტემებში.
+
+Russian:
+
+  From a Unicode conference invitation:
+
+  Зарегистрируйтесь сейчас на Десятую Международную Конференцию по
+  Unicode, которая состоится 10-12 марта 1997 года в Майнце в Германии.
+  Конференция соберет широкий круг экспертов по  вопросам глобального
+  Интернета и Unicode, локализации и интернационализации, воплощению и
+  применению Unicode в различных операционных системах и программных
+  приложениях, шрифтах, верстке и многоязычных компьютерных системах.
+
+Thai (UCS Level 2):
+
+  Excerpt from a poetry on The Romance of The Three Kingdoms
+  (a Chinese classic 'San Gua'):
+
+  [----------------------------|------------------------]
+    ๏ แผ่นดินฮั่นเสื่อมโทรมแสนสังเวช  พระปกเกศกองบู๊กู้ขึ้นใหม่
+  สิบสองกษัตริย์ก่อนหน้าแลถัดไป       สององค์ไซร้โง่เขลาเบาปัญญา
+    ทรงนับถือขันทีเป็นที่พึ่ง           บ้านเมืองจึงวิปริตเป็นนักหนา
+  โฮจิ๋นเรียกทัพทั่วหัวเมืองมา         หมายจะฆ่ามดชั่วตัวสำคัญ
+    เหมือนขับไสไล่เสือจากเคหา      รับหมาป่าเข้ามาเลยอาสัญ
+  ฝ่ายอ้องอุ้นยุแยกให้แตกกัน          ใช้สาวนั้นเป็นชนวนชื่นชวนใจ
+    พลันลิฉุยกุยกีกลับก่อเหตุ          ช่างอาเพศจริงหนาฟ้าร้องไห้
+  ต้องรบราฆ่าฟันจนบรรลัย           ฤๅหาใครค้ำชูกู้บรรลังก์ ฯ
+
+  (The above is a two-column text. If combining characters are handled
+  correctly, the lines of the second column should be aligned with the
+  | character above.)
+
+Ethiopian:
+
+  Proverbs in the Amharic language:
+
+  ሰማይ አይታረስ ንጉሥ አይከሰስ።
+  ብላ ካለኝ እንደአባቴ በቆመጠኝ።
+  ጌጥ ያለቤቱ ቁምጥና ነው።
+  ደሀ በሕልሙ ቅቤ ባይጠጣ ንጣት በገደለው።
+  የአፍ ወለምታ በቅቤ አይታሽም።
+  አይጥ በበላ ዳዋ ተመታ።
+  ሲተረጉሙ ይደረግሙ።
+  ቀስ በቀስ፥ ዕንቁላል በእግሩ ይሄዳል።
+  ድር ቢያብር አንበሳ ያስር።
+  ሰው እንደቤቱ እንጅ እንደ ጉረቤቱ አይተዳደርም።
+  እግዜር የከፈተውን ጉሮሮ ሳይዘጋው አይድርም።
+  የጎረቤት ሌባ፥ ቢያዩት ይስቅ ባያዩት ያጠልቅ።
+  ሥራ ከመፍታት ልጄን ላፋታት።
+  ዓባይ ማደሪያ የለው፥ ግንድ ይዞ ይዞራል።
+  የእስላም አገሩ መካ የአሞራ አገሩ ዋርካ።
+  ተንጋሎ ቢተፉ ተመልሶ ባፉ።
+  ወዳጅህ ማር ቢሆን ጨርስህ አትላሰው።
+  እግርህን በፍራሽህ ልክ ዘርጋ።
+
+Runes:
+
+  ᚻᛖ ᚳᚹᚫᚦ ᚦᚫᛏ ᚻᛖ ᛒᚢᛞᛖ ᚩᚾ ᚦᚫᛗ ᛚᚪᚾᛞᛖ ᚾᚩᚱᚦᚹᛖᚪᚱᛞᚢᛗ ᚹᛁᚦ ᚦᚪ ᚹᛖᛥᚫ
+
+  (Old English, which transcribed into Latin reads 'He cwaeth that he
+  bude thaem lande northweardum with tha Westsae.' and means 'He said
+  that he lived in the northern land near the Western Sea.')
+
+Braille:
+
+  ⡌⠁⠧⠑ ⠼⠁⠒  ⡍⠜⠇⠑⠹⠰⠎ ⡣⠕⠌
+
+  ⡍⠜⠇⠑⠹ ⠺⠁⠎ ⠙⠑⠁⠙⠒ ⠞⠕ ⠃⠑⠛⠔ ⠺⠊⠹⠲ ⡹⠻⠑ ⠊⠎ ⠝⠕ ⠙⠳⠃⠞
+  ⠱⠁⠞⠑⠧⠻ ⠁⠃⠳⠞ ⠹⠁⠞⠲ ⡹⠑ ⠗⠑⠛⠊⠌⠻ ⠕⠋ ⠙⠊⠎ ⠃⠥⠗⠊⠁⠇ ⠺⠁⠎
+  ⠎⠊⠛⠝⠫ ⠃⠹ ⠹⠑ ⠊⠇⠻⠛⠹⠍⠁⠝⠂ ⠹⠑ ⠊⠇⠻⠅⠂ ⠹⠑ ⠥⠝⠙⠻⠞⠁⠅⠻⠂
+  ⠁⠝⠙ ⠹⠑ ⠡⠊⠑⠋ ⠍⠳⠗⠝⠻⠲ ⡎⠊⠗⠕⠕⠛⠑ ⠎⠊⠛⠝⠫ ⠊⠞⠲ ⡁⠝⠙
+  ⡎⠊⠗⠕⠕⠛⠑⠰⠎ ⠝⠁⠍⠑ ⠺⠁⠎ ⠛⠕⠕⠙ ⠥⠏⠕⠝ ⠰⡡⠁⠝⠛⠑⠂ ⠋⠕⠗ ⠁⠝⠹⠹⠔⠛ ⠙⠑
+  ⠡⠕⠎⠑ ⠞⠕ ⠏⠥⠞ ⠙⠊⠎ ⠙⠁⠝⠙ ⠞⠕⠲
+
+  (The first couple of paragraphs of "A Christmas Carol" by Dickens)
+
+Greetings in various languages:
+
+  Hello world, Καλημέρα κόσμε, コンニチハ
+
+-------------------------------------------------------------------------------
